@@ -1,6 +1,7 @@
 package kr.co.song.spring.mvc.service;
 
 import kr.co.song.spring.mvc.domain.Board;
+import kr.co.song.spring.mvc.parameter.BoardParameter;
 import kr.co.song.spring.mvc.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class BoardService {
      * 저장
      * @param parameter
      */
-    public void save(Board parameter){
+    public void save(BoardParameter parameter){
         // 조회하여 리턴된 정보
         Board board = repository.get(parameter.getBoardSeq());
         if(board == null){

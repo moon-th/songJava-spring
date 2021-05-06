@@ -23,7 +23,7 @@
     </select>
 
 
-    <insert id="save"  parameterType="kr.co.song.spring.mvc.domain.Board" useGeneratedKeys="true" keyProperty="boardSeq">
+    <insert id="save"  parameterType="kr.co.song.spring.mvc.parameter.BoardParameter" useGeneratedKeys="true" keyProperty="boardSeq">
         INSERT INTO T_BOARD
            (
             TITLE,
@@ -38,7 +38,7 @@
            )
     </insert>
 
-    <update id="update"  parameterType="kr.co.song.spring.mvc.domain.Board" >
+    <update id="update"  parameterType="kr.co.song.spring.mvc.parameter.BoardParameter" >
        UPDATE T_BOARD SET
             TITLE = #{title},
             CONTENTS = #{contents}
