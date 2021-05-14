@@ -1,7 +1,9 @@
 package kr.co.song.spring.mvc.service;
 
 import kr.co.song.spring.mvc.domain.Board;
+import kr.co.song.spring.mvc.domain.PageRequestParameter;
 import kr.co.song.spring.mvc.parameter.BoardParameter;
+import kr.co.song.spring.mvc.parameter.BoardSearchParameter;
 import kr.co.song.spring.mvc.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,8 @@ public class BoardService {
      * 목록
      * @return
      */
-    public List<Board> getList(){
-        return repository.getList();
+    public List<Board> getList(PageRequestParameter pageRequestParameter){
+        return repository.getList(pageRequestParameter);
     }
 
     /**
