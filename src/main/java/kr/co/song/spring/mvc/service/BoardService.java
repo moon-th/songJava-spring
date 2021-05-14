@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -47,8 +49,6 @@ public class BoardService {
         }
     };
 
-
-
     /**
      * 삭제
      * @param boardSeq
@@ -56,4 +56,26 @@ public class BoardService {
     public void delete(int boardSeq){
         repository.delete(boardSeq);
     };
+
+    /**
+     * 단순 반복문을 이용한 등록 처리.
+     * @param list
+     */
+    public void saveList1(List<BoardParameter> list){
+        for (BoardParameter boardParameter : list) {
+            repository.save(boardParameter);
+        }
+    }
+
+    /**
+     * 100개씩 배열에 담아서 일괄 등록 처리.
+     * @param list
+     */
+    public void saveList2(List<BoardParameter> list){
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("boardList", list);
+        repository.saveList(paramMap);
+    }
+
+
 }

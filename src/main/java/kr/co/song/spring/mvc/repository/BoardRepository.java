@@ -5,6 +5,7 @@ import kr.co.song.spring.mvc.parameter.BoardParameter;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface BoardRepository {
@@ -14,6 +15,7 @@ public interface BoardRepository {
     Board get(int boardSeq);
 
     void save(BoardParameter board);
+    void saveList(Map<String, Object> paramMap);
 
     void update(BoardParameter board);
 
