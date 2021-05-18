@@ -70,12 +70,12 @@ public class BoardController {
      * @param parameter
      */
     @PutMapping("/save")
-    @RequestConfig // 해당 어노테이션을 사용하여 로그인 필수 체크 실행
+    //@RequestConfig(loginCheck = false) // 해당 어노테이션을 사용하여 로그인 필수 체크 실행
     @ApiOperation(value = "등록 / 수정 처리", notes="신규 게시물 저장 및 기존 게시물 수정할 수 있습니다.")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "boardSeq",value = "게시물 번호",example = "1"),
             @ApiImplicitParam(name = "title",value = "제목",example = "spring"),
-            @ApiImplicitParam(name = "contents",value = "내용",example = "spring 강의")
+            @ApiImplicitParam(name = "contents",value = "내용",example = "spring 강의"),
     })
     public BaseResponse<Integer> save(BoardParameter parameter){
         // 제목 필수 체크

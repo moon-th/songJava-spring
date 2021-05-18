@@ -2,12 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.co.song.spring.mvc.repository.BoardRepository">
-    <select id="getList"  parameterType="kr.co.song.spring.mvc.domain.PageRequestParameter" resultType="kr.co.song.spring.mvc.domain.Board">
+
+    <resultMap id="getListResultMap" type="kr.co.song.spring.mvc.domain.Board">
+        <result column="DEL_YN"  property="delYn" typeHandler="kr.co.song.spring.configuration.mybatis.typehandler.StringValueBooleanTypeHandler"/>
+    </resultMap>
+
+    <select id="getList"  parameterType="kr.co.song.spring.mvc.domain.PageRequestParameter" resultMap="getListResultMap">
         SELECT
             B.BOARD_SEQ,
             B.TITLE,
             B.CONTENTS,
-            B.REG_DATE
+            B.REG_DATE,
+            B.DEL_YN
         FROM T_BOARD B
         <where>
             <!-- 키워드 검색-->
@@ -25,7 +31,7 @@
 
         </where>
         ORDER BY B.REG_DATE DESC
-        LIMIT #{pageRequest.limit},#{pageRequet.offset}
+        LIMIT #{pageRequest.limit},#{pageRequest.offset}
     </select>
 
     <select id="get"  parameterType="int" resultType="kr.co.song.spring.mvc.domain.Board">
@@ -42,15 +48,18 @@
     <insert id="save"  parameterType="kr.co.song.spring.mvc.parameter.BoardParameter" useGeneratedKeys="true" keyProperty="boardSeq">
         INSERT INTO T_BOARD
            (
+            BOARD_TYPE,
             TITLE,
             CONTENTS,
-            REG_DATE
-
+            REG_DATE,
+            DEL_YN
            )VALUES
            (
+            #{boardType.code},
             #{title},
             #{contents},
-            NOW()
+            NOW(),
+            #{delYn, typeHandler=kr.co.song.spring.configuration.mybatis.typehandler.StringValueBooleanTypeHandler}
            )
     </insert>
 

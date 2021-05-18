@@ -21,10 +21,11 @@ public class BaseControllerAdvice {
     @Autowired
     private MessageSource messageSource;
 
-    @ExceptionHandler(value = {BaseException.class})
-        @ResponseStatus(HttpStatus.OK)
+    @ExceptionHandler(value = {BaseException.class}) //예외처리 내용을 담아준 클래스를 지정
+        @ResponseStatus(HttpStatus.OK) // 어떠한 통신 상태값에서 받을지 설정
         @ResponseBody
     private BaseResponse<?> handleBaseException(BaseException e, WebRequest request){
+        //BaseResponse 미리 만들어 놓은 응답 클래스를 사용하여 메시지를 전달 하여 준다.
         return new BaseResponse<String>(e.getResponseCode(), messageSource.getMessage(e.getResponseCode().name(),e.getArgs(),null));
     }
 

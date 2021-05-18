@@ -1,8 +1,10 @@
 package kr.co.song.spring.mvc.domain;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Data
+@Getter
 public class PageRequestParameter<T> {
 
     private MySQLPageRequest pageRequest;
