@@ -11,16 +11,14 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-/**
- * 이 어노테이션을 구현함으로써 클래스가 하나 이상의 @Bean 메소드를 제공하고
- * 스프링 컨테이가 Bean 정의를 생성하고 런타임시 그 Bean 들이 요청들을 처리할 것을 선언하게 된다.
- */
+
 @Configuration
 /**
  * @Mapper(애너테이션)을 이용하여 Mapper Interface를 스프링 빈으로 주입받아 DB에 접근하는 방법
  */
 @MapperScan(basePackages = "kr.co.song.spring.mvc.repository") //해당 패키지를 스캔
 public class MybatisConfiguration {
+
 
 
     @Bean

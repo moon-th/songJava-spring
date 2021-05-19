@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
+@EnableScheduling // 스케줄러 사용을 위해 선언
 public class SongJavaSpringApplication {
 
     public static void main(String[] args) {

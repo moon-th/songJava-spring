@@ -8,10 +8,7 @@ import org.springframework.core.annotation.AliasFor;
 
 import javax.sql.DataSource;
 
-/**
- * 이 어노테이션을 구현함으로써 클래스가 하나 이상의 @Bean 메소드를 제공하고
- * 스프링 컨테이가 Bean 정의를 생성하고 런타임시 그 Bean 들이 요청들을 처리할 것을 선언하게 된다.
- */
+
 @Configuration
 public class DatabaseConfiguration {
 

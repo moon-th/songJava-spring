@@ -18,6 +18,7 @@ import org.springframework.web.context.request.WebRequest;
 @ControllerAdvice
 public class BaseControllerAdvice {
 
+    //webConfiguration 에서 만들어 둔 messageSource 빈 사용
     @Autowired
     private MessageSource messageSource;
 
@@ -26,6 +27,8 @@ public class BaseControllerAdvice {
         @ResponseBody
     private BaseResponse<?> handleBaseException(BaseException e, WebRequest request){
         //BaseResponse 미리 만들어 놓은 응답 클래스를 사용하여 메시지를 전달 하여 준다.
+        //e.getResponseCode().name() = 메시지 프로퍼티 파일에 있는 code 를 찾는 매개변수
+        //e.getArgs() = 메세지에 넣어줄 매개변수
         return new BaseResponse<String>(e.getResponseCode(), messageSource.getMessage(e.getResponseCode().name(),e.getArgs(),null));
     }
 

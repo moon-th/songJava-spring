@@ -5,7 +5,6 @@ import kr.co.song.spring.configuration.http.BaseResponseCode;
 import kr.co.song.spring.mvc.domain.ThumbnailType;
 import kr.co.song.spring.mvc.domain.UploadFile;
 import kr.co.song.spring.mvc.service.UploadFileService;
-import lombok.extern.flogger.Flogger;
 import net.coobird.thumbnailator.Thumbnails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

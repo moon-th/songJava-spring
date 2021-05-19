@@ -13,6 +13,10 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 import javax.annotation.PostConstruct;
 import java.util.Properties;
 
+
+/**
+ * 개발환경에 맞게 프로퍼티 파일에 작성한 소스들을 가져다 사용한다.
+ */
 public class GlobalConfig {
 
     final Logger logger = LoggerFactory.getLogger(getClass());
