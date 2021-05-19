@@ -3,6 +3,21 @@
 
 <mapper namespace="kr.co.song.spring.mvc.repository.UploadFileRepository">
 
+    <select id="get" parameterType="int" resultType="kr.co.song.spring.mvc.domain.UploadFile">
+        SELECT
+            UF.PATHNAME,
+            UF.FILENAME,
+            UF.ORIGINAL_FILENAME,
+            UF.SIZE,
+            UF.CONTENT_TYPE,
+            UF.RESOURCE_PATHNAME,
+            UF.REG_DATE
+        FROM T_UPLOAD_FILE UF
+            WHERE UF.UPLOAD_FILE_SEQ = #{uploadFoleSeq}
+
+    </select>
+
+
     <insert id="save" parameterType="kr.co.song.spring.mvc.parameter.UploadFileParameter">
     INSERT INTO T_UPLOAD_FILE
     (
